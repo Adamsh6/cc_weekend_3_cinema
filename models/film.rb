@@ -42,13 +42,16 @@ class Film
     return Customer.map_items(result)
   end
 
+  #EXTENSION
   def customer_count
-    sql = "SELECT COUNT(*) FROM customers INNER JOIN tickets
-            ON customers.id = tickets.customer_id
-            WHERE film_id = $1"
-    values = [@id]
-    count = SqlRunner.run(sql, values)
-    return count[0]['count']
+    #Used this methodology until I realised it would be simpler to just use a different method
+    # sql = "SELECT COUNT(*) FROM customers INNER JOIN tickets
+    #         ON customers.id = tickets.customer_id
+    #         WHERE film_id = $1"
+    # values = [@id]
+    # count = SqlRunner.run(sql, values)
+    # return count[0]['count']
+    return customers.size
   end
 
   #ADVANCED EXTENSION

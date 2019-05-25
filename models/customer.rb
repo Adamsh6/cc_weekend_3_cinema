@@ -42,6 +42,7 @@ class Customer
     return Film.map_items(result)
   end
 
+  #EXTENSION
   def ticket_count
     sql = "SELECT COUNT(*) FROM tickets WHERE customer_id = $1"
     values = [@id]
@@ -49,6 +50,7 @@ class Customer
     return result[0]['count']
   end
 
+  #EXTENSION/ADVANCED EXTENSION
   def buy_ticket(screening_time)
     sql = 'SELECT * FROM screenings
             WHERE start_time = $1'
